@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import * as React from "react";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import { Nav, Footer } from './components'
+import { Login, Register, Success, Verification } from './pages'
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Nav />
+        <div className="px-10 py-8 min-h-screen">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="success" element={<Success />} />
+            <Route path="verification" element={<Verification />} />
+          </Routes>
+        </div>
+        <Footer />
     </div>
   );
 }
