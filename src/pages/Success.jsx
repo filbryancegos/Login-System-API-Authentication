@@ -3,7 +3,7 @@ import React from 'react'
 const Success = () => {
     return (
         <div>
-            <h1>this is success</h1>
+           <h1 class="text-blue-500 text-center font-bold text-lg">Login successful</h1>
         </div>
     )
 }
