@@ -37,7 +37,7 @@ const Register = () => {
         e.preventDefault()
         dispatch(register(formData))
         .then(data => {
-            console.log(data, 'eking');
+    
             navigate('/verification')
         })
         .catch(err => {

@@ -25,7 +25,10 @@ const Nav = () => {
 
     useEffect(() => {
         checkAuth()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isLoggedIn])
+
+   
 
     return (
         <div className="bg-blue-500 px-10 py-4 text-white">
