@@ -6,19 +6,20 @@ import {
   } from "../actions/types";
 
   const initialState = {
-      token: localStorage.getItem('token') || '',
-      user: {},
-      isLogin: false
+        user: {},
+        isLogin: localStorage.getItem('login') || '',
+        username: localStorage.getItem('user') || '',
   };
   
   function authReducer(user = initialState, action) {
     const { type, payload } = action;
     if (type === LOGIN ) {
+        console.log(payload.user.full_name);
         return {
             ...user,
-            token: payload.access_token,
             user: payload.user, 
-            isLogin: true
+            isLogin: true,
+            username: payload.user.full_name
         }
     }
 
@@ -26,7 +27,6 @@ import {
         console.log(payload);
         return {
             ...user,
-            token: payload.access_token,
             user: payload.user, 
             isLogin: false
         }
@@ -44,9 +44,9 @@ import {
         console.log("logout brutos");
         return {
             ...user,
-            token: '',
             user: {}, 
-            isLogin: false
+            isLogin: false,
+            username: ''
         }
     }
 

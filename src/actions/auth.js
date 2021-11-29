@@ -11,7 +11,8 @@ import {
     try {
         const res = await AuthService.login(data);
         localStorage.setItem('token', res.data.data.access_token);
-        localStorage.setItem('isLoggedin', 'isLoggedin');
+        localStorage.setItem('user', res.data.data.user.full_name);
+        localStorage.setItem('login', 'is_login');
         
         dispatch({
             type: LOGIN,
@@ -55,16 +56,14 @@ import {
   };
 
   export const logout = () => async (dispatch) => {
-      console.log( 'ekging brutos');
     try {
       const res = await AuthService.logout()
-      localStorage.setItem('isLoggedin', '');
-
+      localStorage.setItem('login', '');
+      localStorage.setItem('user', '');
       dispatch({
         type: LOGOUT,
       });
-
-        return Promise.resolve(res.data);
+      return Promise.resolve(res.data);
     } catch (err) {
       return Promise.reject(err);
     }

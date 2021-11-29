@@ -34,7 +34,7 @@ const Login = () => {
         dispatch(login(formData))
         .then(data => {
             navigate('/success')
-            window.location.reload(false);
+            //window.location.reload(false);
         })
         .catch(err => {
             const isError = err.response.data.errors

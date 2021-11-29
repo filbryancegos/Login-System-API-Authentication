@@ -4,8 +4,6 @@ import './App.css';
 import { Nav, Footer } from './components'
 import { Login, Register, Success, Verification } from './pages'
 
-
-
 function App() {
   return (
     <div className="App">

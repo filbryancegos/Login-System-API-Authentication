@@ -46,7 +46,7 @@ const Verification = () => {
                     className="mt-1 block w-full rounded-sm" placeholder="" />
                 </label>
                 <div className="flex mt-4">
-                    <button className="bg-purple-500 py-3  text-white w-full rounded-sm text-lg font-bold">Verify</button>
+                    <button className="bg-blue-500 py-3  text-white w-full rounded-sm text-lg font-bold">Verify</button>
                 </div>
             </form>
         </div>
