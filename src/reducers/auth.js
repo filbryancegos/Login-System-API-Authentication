@@ -14,7 +14,6 @@ import {
   function authReducer(user = initialState, action) {
     const { type, payload } = action;
     if (type === LOGIN ) {
-        console.log(payload.user.full_name);
         return {
             ...user,
             user: payload.user, 
@@ -24,7 +23,6 @@ import {
     }
 
     if (type === REGISTER) {
-        console.log(payload);
         return {
             ...user,
             user: payload.user, 
@@ -33,7 +31,6 @@ import {
     }
 
     if (type === VERIFY) {
-        console.log('verify');
         return {
             ...user,
             isLogin: true
@@ -41,7 +38,6 @@ import {
     }
 
     if (type === LOGOUT) {
-        console.log("logout brutos");
         return {
             ...user,
             user: {}, 

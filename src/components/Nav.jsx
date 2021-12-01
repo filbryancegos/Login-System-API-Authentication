@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,15 +9,27 @@ const Nav = () => {
 
     const isLogin = useSelector(state => state.auth.isLogin)
     const username = useSelector(state => state.auth.username)
- 
-    
+     
     const handleLogout = () => {
         dispatch(logout())
-        .then(response => {
+        .then(() => {
             localStorage.removeItem('token')
             navigate('/login')
         })
     }
+
+    const islogeInd = () => {
+        if (!isLogin) {
+            navigate('/login')
+        } else {
+            navigate('/success')
+        }
+    }
+
+    useEffect(() => {
+        islogeInd()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLogin])
 
     return (
         <div className="bg-blue-500 px-10 py-4 text-white">

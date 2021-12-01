@@ -32,16 +32,13 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login(formData))
-        .then(data => {
+        .then(() => {
             navigate('/success')
-            //window.location.reload(false);
         })
         .catch(err => {
             const isError = err.response.data.errors
             setFormErrors(errors)
-
             if (!isError) {
-                console.log("eking");
                 setMessageError(err.response.data.message)
             } else {
                 setMessageError('')

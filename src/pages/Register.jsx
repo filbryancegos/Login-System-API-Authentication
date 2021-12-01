@@ -36,8 +36,7 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault()
         dispatch(register(formData))
-        .then(data => {
-    
+        .then(() => {
             navigate('/verification')
         })
         .catch(err => {
